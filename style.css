@@ -268,6 +268,568 @@ footer p {
     color: var(--text-secondary);
 }
 
+/* Articles Page Styles */
+.articles-hero {
+    padding: 120px 0 60px;
+    background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
+    text-align: center;
+}
+
+.articles-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--accent-gold);
+}
+
+.articles-hero p {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+}
+
+.articles-list {
+    padding: 80px 0;
+    background-color: var(--primary-bg);
+}
+
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.article-card {
+    background-color: var(--secondary-bg);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    transition: var(--transition);
+    text-align: center;
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-gold);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+}
+
+.article-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.article-card h2 {
+    color: var(--accent-gold);
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    line-height: 1.4;
+}
+
+.article-card p {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.article-card .btn {
+    margin-top: auto;
+}
+
+/* Article Pages Styles */
+.article-main {
+    padding: 100px 0 60px;
+    background-color: var(--primary-bg);
+    min-height: 100vh;
+}
+
+.article-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.article-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.article-breadcrumb {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.article-breadcrumb a {
+    color: var(--accent-gold);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.article-breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.article-header h1 {
+    font-size: 2.5rem;
+    color: var(--accent-gold);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.article-meta {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.article-body {
+    line-height: 1.8;
+}
+
+.article-section {
+    margin-bottom: 3rem;
+}
+
+.article-section h2 {
+    color: var(--accent-gold);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    border-right: 4px solid var(--accent-gold);
+    padding-right: 1rem;
+}
+
+.article-section h3 {
+    color: var(--text-primary);
+    margin: 1.5rem 0 1rem;
+    font-size: 1.3rem;
+}
+
+.article-section p {
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+/* Key Points Styles */
+.key-points {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.point {
+    background: rgba(212, 175, 55, 0.1);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.point h4 {
+    color: var(--accent-gold);
+    margin-bottom: 0.5rem;
+}
+
+/* Blockchain Explanation */
+.blockchain-explanation {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.block-item {
+    background: var(--secondary-bg);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+}
+
+.block-item h4 {
+    color: var(--accent-gold);
+    margin-bottom: 0.5rem;
+}
+
+/* Features List */
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+}
+
+.features-list li {
+    background: var(--secondary-bg);
+    margin-bottom: 0.8rem;
+    padding: 1rem 1.5rem;
+    border-radius: var(--border-radius);
+    border-right: 3px solid var(--accent-gold);
+}
+
+/* Crypto Cards */
+.crypto-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.crypto-card {
+    background: var(--secondary-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    transition: var(--transition);
+}
+
+.crypto-card:hover {
+    border-color: var(--accent-gold);
+    transform: translateY(-2px);
+}
+
+.crypto-card h3 {
+    color: var(--accent-gold);
+    margin-bottom: 1rem;
+}
+
+/* Mining Styles */
+.mining-reasons, .mining-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.reason, .step {
+    background: var(--secondary-bg);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    border-left: 3px solid var(--accent-gold);
+}
+
+.reason h4, .step h4 {
+    color: var(--accent-gold);
+    margin-bottom: 0.5rem;
+}
+
+.important-note {
+    background: rgba(212, 175, 55, 0.1);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--accent-gold);
+    margin: 2rem 0;
+}
+
+.important-note h4 {
+    color: var(--accent-gold);
+    margin-bottom: 0.5rem;
+}
+
+/* Article Navigation */
+.article-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+/* Additional Styles for Articles 3 & 4 */
+
+/* Hardware Types */
+.hardware-types {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.hardware-card {
+    background: var(--secondary-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.hardware-card h3 {
+    color: var(--accent-gold);
+    margin-bottom: 1rem;
+}
+
+.specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.spec-tag {
+    background: rgba(212, 175, 55, 0.2);
+    color: var(--accent-gold);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+/* Cost Breakdown */
+.cost-breakdown {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.cost-item {
+    background: var(--secondary-bg);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    border-left: 4px solid var(--accent-gold);
+}
+
+.cost-item h4 {
+    color: var(--accent-gold);
+    margin-bottom: 0.5rem;
+}
+
+.cost-range {
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--accent-gold);
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    margin-top: 1rem;
+    font-weight: bold;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+/* Calculator Inputs */
+.calculator-inputs {
+    background: var(--secondary-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    margin: 2rem 0;
+}
+
+.input-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.input-group:last-child {
+    border-bottom: none;
+}
+
+.input-label {
+    color: var(--accent-gold);
+    font-weight: bold;
+    flex: 1;
+}
+
+.input-example {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.note {
+    background: rgba(212, 175, 55, 0.1);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    border-right: 4px solid var(--accent-gold);
+    font-style: italic;
+}
+
+/* Mining Alternatives */
+.mining-alternatives {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.alternative {
+    background: var(--secondary-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+}
+
+.alternative h3 {
+    color: var(--accent-gold);
+    margin-bottom: 1rem;
+}
+
+.pros-cons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.pros, .cons {
+    padding: 1rem;
+    border-radius: var(--border-radius);
+}
+
+.pros {
+    background: rgba(0, 255, 0, 0.1);
+    border: 1px solid rgba(0, 255, 0, 0.3);
+}
+
+.cons {
+    background: rgba(255, 0, 0, 0.1);
+    border: 1px solid rgba(255, 0, 0, 0.3);
+}
+
+.pros h4, .cons h4 {
+    margin-bottom: 0.5rem;
+}
+
+.pros ul, .cons ul {
+    padding-right: 1rem;
+    margin: 0;
+}
+
+.pros li {
+    color: #90EE90;
+}
+
+.cons li {
+    color: #FFB6C1;
+}
+
+/* Risks Grid */
+.risks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.risk-card {
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    border-left: 4px solid;
+}
+
+.high-risk {
+    background: rgba(255, 0, 0, 0.1);
+    border-left-color: #ff4444;
+}
+
+.medium-risk {
+    background: rgba(255, 165, 0, 0.1);
+    border-left-color: #ffa500;
+}
+
+.risk-card h4 {
+    margin-bottom: 0.5rem;
+}
+
+/* Proof of Stake Explanation */
+.pos-explanation {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.pos-step {
+    background: var(--secondary-bg);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+}
+
+.pos-step h4 {
+    color: var(--accent-gold);
+    margin-bottom: 0.5rem;
+}
+
+/* Comparison Table */
+.comparison-table {
+    margin: 3rem 0;
+    overflow-x: auto;
+}
+
+.comparison-table h3 {
+    color: var(--accent-gold);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--secondary-bg);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: right;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+th {
+    background: rgba(212, 175, 55, 0.2);
+    color: var(--accent-gold);
+    font-weight: bold;
+}
+
+tr:hover {
+    background: rgba(212, 175, 55, 0.05);
+}
+
+/* Future Trends */
+.future-trends {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.trend-card {
+    background: var(--secondary-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    transition: var(--transition);
+}
+
+.trend-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-gold);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+}
+
+.trend-card h3 {
+    color: var(--accent-gold);
+    margin-bottom: 1rem;
+}
+
+/* Conclusion Section */
+.conclusion {
+    background: linear-gradient(135deg, var(--secondary-bg) 0%, var(--primary-bg) 100%);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    border: 2px solid var(--accent-gold);
+}
+
+.final-advice {
+    background: rgba(212, 175, 55, 0.1);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    margin-top: 1.5rem;
+    border-right: 4px solid var(--accent-gold);
+}
+
+.final-advice h4 {
+    color: var(--accent-gold);
+    margin-bottom: 0.5rem;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero-content {
@@ -296,6 +858,58 @@ footer p {
     .crypto-animation {
         font-size: 5rem;
     }
+    
+    .articles-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .article-card {
+        padding: 2rem;
+    }
+    
+    .articles-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .article-header h1 {
+        font-size: 2rem;
+    }
+    
+    .article-navigation {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .key-points, .blockchain-explanation, .crypto-cards, .mining-reasons, .mining-steps {
+        grid-template-columns: 1fr;
+    }
+    
+    .article-section h2 {
+        font-size: 1.5rem;
+    }
+    
+    .pros-cons {
+        grid-template-columns: 1fr;
+    }
+    
+    .hardware-types, .cost-breakdown, .mining-alternatives,
+    .risks-grid, .pos-explanation, .future-trends {
+        grid-template-columns: 1fr;
+    }
+    
+    .input-group {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    table {
+        font-size: 0.9rem;
+    }
+    
+    th, td {
+        padding: 0.5rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -314,6 +928,10 @@ footer p {
     }
     
     .hero-title {
+        font-size: 2rem;
+    }
+    
+    .section-title {
         font-size: 2rem;
     }
 }
