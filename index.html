@@ -1,98 +1,212 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>العملات الرقمية - البوابة الشاملة</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>رسالة إلى رامي</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(to left, #4a90e2, #2c3e50);
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        .message-container {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 30px;
+            border-right: 5px solid #4a90e2;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .message-container::after {
+            content: "✉️";
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .message-text {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            color: #2c3e50;
+            text-align: justify;
+        }
+        
+        .highlight {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        .sender {
+            text-align: left;
+            font-style: italic;
+            color: #7f8c8d;
+            margin-top: 20px;
+            font-size: 1.1rem;
+            padding-top: 15px;
+            border-top: 1px dashed #ddd;
+        }
+        
+        .note {
+            background-color: #fffde7;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+            border-right: 5px solid #f1c40f;
+            font-size: 1rem;
+            color: #7d6608;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #95a5a6;
+            font-size: 0.9rem;
+            width: 100%;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .message-text {
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 1.7rem;
+            }
+            
+            .message-text {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="nav-container">
-                <h1 class="nav-logo">🪙 CryptoWorld</h1>
-                <ul class="nav-menu">
-                    <li class="nav-item">
-                        <a href="index.html" class="nav-link active">الرئيسية</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="articles.html" class="nav-link">المقالات</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1 class="hero-title">مرحباً بك في عالم العملات الرقمية</h1>
-                <p class="hero-description">
-                    رحلة شاملة لاكتشاف عالم العملات المشفرة والتعدين. من الأساسيات إلى الاحتراف، 
-                    كل ما تحتاج معرفته في مكان واحد. ابدأ رحلتك الآن نحو فهم هذه الثورة المالية.
-                </p>
-                <div class="hero-buttons">
-                    <a href="articles.html" class="btn btn-primary">ابدأ التعلم الآن</a>
-                    <a href="#features" class="btn btn-secondary">المزيد عنا</a>
+    <div class="container">
+        <header>
+            <h1>رسالة إلى رامي</h1>
+            <div class="subtitle">رسالة نصية خاصة</div>
+        </header>
+        
+        <main>
+            <div class="message-container">
+                <div class="message-text">
+                    <span class="highlight">رامي</span><br><br>
+                    كنتو اريد اقوللك اذا فاتو انهزم او خيو اذا تاكدت انو الي ينشق مو يحكون معو سلم حالك المهم شوف المناسب وسوي اكيد انتا عرفت شي لانو كل واحد يقول شي
                 </div>
+                
+                <div class="sender">مرسل غير معروف</div>
             </div>
-            <div class="hero-image">
-                <div class="crypto-animation">₿</div>
+            
+            <div class="note">
+                <strong>ملاحظة:</strong> هذه الصفحة تم إنشاؤها لعرض رسالة نصية في شكل موقع ويب. النص المعروض أعلاه هو النص المطلوب عرضه كما هو.
             </div>
-        </section>
-
-        <section id="features" class="features">
-            <div class="container">
-                <h2 class="section-title">ما الذي ستتعلمه؟</h2>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">🔗</div>
-                        <h3>تقنية البلوكشين</h3>
-                        <p>فهم الأساس التقني الذي تقوم عليه العملات الرقمية</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">⛏️</div>
-                        <h3>التعدين</h3>
-                        <p>تعرف على عملية التعدين وكيفية الربح منها</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">💰</div>
-                        <h3>الاستثمار</h3>
-                        <p>المخاطر والفرص في عالم العملات الرقمية</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🛡️</div>
-                        <h3>الأمان</h3>
-                        <p>كيف تحفظ عملاتك الرقمية بشكل آمن</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="stats">
-            <div class="container">
-                <div class="stats-grid">
-                    <div class="stat">
-                        <h3>+1000</h3>
-                        <p>عملة رقمية</p>
-                    </div>
-                    <div class="stat">
-                        <h3>$2T+</h3>
-                        <p>قيمة سوقية</p>
-                    </div>
-                    <div class="stat">
-                        <h3>+100M</h3>
-                        <p>مستخدم حول العالم</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 CryptoWorld. جميع الحقوق محفوظة.</p>
-        </div>
-    </footer>
+        </main>
+        
+        <footer>
+            <p>© 2023 - صفحة رسالة نصية | تم التصميم لعرض النص العربي بشكل مناسب</p>
+        </footer>
+    </div>
+    
+    <script>
+        // إضافة تأثير بسيط عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            const message = document.querySelector('.message-container');
+            message.style.opacity = '0';
+            message.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                message.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                message.style.opacity = '1';
+                message.style.transform = 'translateY(0)';
+            }, 300);
+            
+            // تغيير لون النص المميز عند النقر عليه
+            const highlight = document.querySelector('.highlight');
+            highlight.addEventListener('click', function() {
+                this.style.color = '#3498db';
+                setTimeout(() => {
+                    this.style.color = '#e74c3c';
+                }, 500);
+            });
+        });
+    </script>
 </body>
 </html>
