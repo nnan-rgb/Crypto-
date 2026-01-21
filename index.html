@@ -1,10 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>رسالة إلى رامي</title>
+    <title>مراسلة جماعية مشفرة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -14,199 +14,523 @@
         }
         
         body {
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
-            padding: 20px;
-            min-height: 100vh;
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            height: 100vh;
             display: flex;
             flex-direction: column;
-            align-items: center;
         }
         
-        .container {
-            max-width: 800px;
-            width: 100%;
-            background-color: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            padding: 40px;
-            margin-top: 30px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100%;
-            height: 8px;
-            background: linear-gradient(to left, #4a90e2, #2c3e50);
+        .app-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            max-width: 100%;
         }
         
         header {
-            text-align: center;
-            margin-bottom: 40px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 20px;
+            background-color: #1a1a1a;
+            padding: 15px 20px;
+            border-bottom: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
-        h1 {
-            color: #2c3e50;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            font-weight: 700;
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
         
-        .subtitle {
-            color: #7f8c8d;
-            font-size: 1.2rem;
-            margin-bottom: 5px;
+        .logo i {
+            color: #25d366;
+            font-size: 28px;
         }
         
-        .message-container {
-            background-color: #f9f9f9;
-            border-radius: 10px;
-            padding: 30px;
-            border-right: 5px solid #4a90e2;
-            margin-bottom: 30px;
-            position: relative;
-        }
-        
-        .message-container::after {
-            content: "✉️";
-            position: absolute;
-            left: 20px;
-            top: 20px;
+        .logo h1 {
+            color: #fff;
             font-size: 1.5rem;
+            font-weight: 600;
         }
         
-        .message-text {
-            font-size: 1.4rem;
-            line-height: 1.8;
-            color: #2c3e50;
-            text-align: justify;
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         
-        .highlight {
-            color: #e74c3c;
-            font-weight: bold;
-        }
-        
-        .sender {
-            text-align: left;
-            font-style: italic;
-            color: #7f8c8d;
-            margin-top: 20px;
-            font-size: 1.1rem;
-            padding-top: 15px;
-            border-top: 1px dashed #ddd;
-        }
-        
-        .note {
-            background-color: #fffde7;
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 30px;
-            border-right: 5px solid #f1c40f;
-            font-size: 1rem;
-            color: #7d6608;
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            color: #95a5a6;
+        .user-name {
+            background-color: #25d366;
+            color: #000;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 600;
             font-size: 0.9rem;
-            width: 100%;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
         }
         
+        .messages-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background-color: #0a0a0a;
+        }
+        
+        .message {
+            max-width: 70%;
+            padding: 12px 18px;
+            border-radius: 18px;
+            position: relative;
+            word-wrap: break-word;
+            line-height: 1.5;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .my-message {
+            background-color: #005c4b;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+            color: #fff;
+        }
+        
+        .other-message {
+            background-color: #1f2c34;
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+            color: #e7e7e7;
+        }
+        
+        .message-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+            font-size: 0.75rem;
+            opacity: 0.8;
+        }
+        
+        .message-time {
+            direction: ltr;
+        }
+        
+        .encrypted-note {
+            text-align: center;
+            margin: 10px 0;
+            font-size: 0.8rem;
+            color: #999;
+        }
+        
+        .encrypted-note i {
+            margin-left: 5px;
+        }
+        
+        .input-container {
+            background-color: #1a1a1a;
+            padding: 15px 20px;
+            display: flex;
+            gap: 15px;
+            border-top: 1px solid #333;
+        }
+        
+        .message-input {
+            flex: 1;
+            background-color: #2a2a2a;
+            border: 1px solid #333;
+            border-radius: 25px;
+            padding: 12px 20px;
+            color: #fff;
+            font-size: 1rem;
+            outline: none;
+            resize: none;
+            max-height: 120px;
+        }
+        
+        .message-input:focus {
+            border-color: #25d366;
+        }
+        
+        .send-button {
+            background-color: #25d366;
+            color: #000;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .send-button:hover {
+            background-color: #1da851;
+            transform: scale(1.05);
+        }
+        
+        .send-button:disabled {
+            background-color: #1a3a2a;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .send-button i {
+            font-size: 20px;
+            margin-left: 2px;
+        }
+        
+        .welcome-message {
+            text-align: center;
+            margin: 20px 0;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        .no-messages {
+            text-align: center;
+            color: #666;
+            margin-top: 40px;
+            font-size: 1rem;
+        }
+        
+        .user-select {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        select {
+            background-color: #2a2a2a;
+            color: #fff;
+            border: 1px solid #444;
+            border-radius: 5px;
+            padding: 5px 10px;
+            outline: none;
+        }
+        
+        /* التمرير */
+        .messages-container::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .messages-container::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        
+        .messages-container::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+        
+        /* التكيف مع الهواتف */
         @media (max-width: 768px) {
-            .container {
-                padding: 25px;
+            header {
+                padding: 12px 15px;
             }
             
-            h1 {
-                font-size: 2rem;
+            .logo h1 {
+                font-size: 1.3rem;
             }
             
-            .message-text {
-                font-size: 1.2rem;
+            .messages-container {
+                padding: 15px;
+            }
+            
+            .message {
+                max-width: 85%;
+            }
+            
+            .input-container {
+                padding: 12px 15px;
             }
         }
         
         @media (max-width: 480px) {
-            body {
-                padding: 10px;
-            }
-            
-            .container {
-                padding: 20px;
-            }
-            
-            h1 {
-                font-size: 1.7rem;
-            }
-            
-            .message-text {
+            .logo h1 {
                 font-size: 1.1rem;
+            }
+            
+            .user-name {
+                font-size: 0.8rem;
+                padding: 5px 10px;
+            }
+            
+            .message {
+                max-width: 90%;
+                padding: 10px 15px;
+            }
+            
+            .send-button {
+                width: 45px;
+                height: 45px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="app-container">
         <header>
-            <h1>رسالة إلى رامي</h1>
-            <div class="subtitle">رسالة نصية خاصة</div>
+            <div class="logo">
+                <i class="fab fa-whatsapp"></i>
+                <h1>مراسلة جماعية مشفرة</h1>
+            </div>
+            <div class="user-info">
+                <div class="user-select">
+                    <span>اسم المستخدم:</span>
+                    <select id="userSelect">
+                        <option value="أحمد">أحمد</option>
+                        <option value="سارة">سارة</option>
+                        <option value="محمد">محمد</option>
+                        <option value="ليلى">ليلى</option>
+                        <option value="عمر">عمر</option>
+                        <option value="نور">نور</option>
+                    </select>
+                </div>
+                <div class="user-name" id="currentUser">أحمد</div>
+            </div>
         </header>
         
-        <main>
-            <div class="message-container">
-                <div class="message-text">
-                    <span class="highlight">رامي</span><br><br>
-                    كنتو اريد اقوللك اذا فاتو انهزم او خيو اذا تاكدت انو الي ينشق مو يحكون معو سلم حالك المهم شوف المناسب وسوي اكيد انتا عرفت شي لانو كل واحد يقول شي
-                </div>
-                
-                <div class="sender">مرسل غير معروف</div>
+        <div class="messages-container" id="messagesContainer">
+            <div class="welcome-message">
+                <p>مرحبًا! هذه غرفة دردشة مشفرة. جميع الرسائل مشفرة طرف-ل-طرف.</p>
+                <p>اختر اسم مستخدم وابدأ المحادثة.</p>
             </div>
             
-            <div class="note">
-                <strong>ملاحظة:</strong> هذه الصفحة تم إنشاؤها لعرض رسالة نصية في شكل موقع ويب. النص المعروض أعلاه هو النص المطلوب عرضه كما هو.
-            </div>
-        </main>
+            <div class="no-messages" id="noMessages">لا توجد رسائل بعد. كن أول من يرسل رسالة!</div>
+            
+            <!-- سيتم إضافة الرسائل هنا ديناميكيًا -->
+        </div>
         
-        <footer>
-            <p>© 2023 - صفحة رسالة نصية | تم التصميم لعرض النص العربي بشكل مناسب</p>
-        </footer>
+        <div class="encrypted-note">
+            <i class="fas fa-lock"></i> الرسائل مشفرة طرف-ل-طرف. لا يستطيع أحد خارج هذه الغرفة قراءتها.
+        </div>
+        
+        <div class="input-container">
+            <textarea 
+                class="message-input" 
+                id="messageInput" 
+                placeholder="اكتب رسالتك هنا..." 
+                rows="1"
+            ></textarea>
+            <button class="send-button" id="sendButton">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
     </div>
-    
+
     <script>
-        // إضافة تأثير بسيط عند تحميل الصفحة
-        document.addEventListener('DOMContentLoaded', function() {
-            const message = document.querySelector('.message-container');
-            message.style.opacity = '0';
-            message.style.transform = 'translateY(20px)';
+        // توليد معرف فريد للمستخدم عند الدخول
+        let userId = localStorage.getItem('chatUserId');
+        if (!userId) {
+            userId = 'user_' + Math.random().toString(36).substring(2, 15);
+            localStorage.setItem('chatUserId', userId);
+        }
+        
+        // الحصول على العناصر من DOM
+        const messagesContainer = document.getElementById('messagesContainer');
+        const messageInput = document.getElementById('messageInput');
+        const sendButton = document.getElementById('sendButton');
+        const userSelect = document.getElementById('userSelect');
+        const currentUserElement = document.getElementById('currentUser');
+        const noMessagesElement = document.getElementById('noMessages');
+        
+        // اسم المستخدم الحالي
+        let currentUser = userSelect.value;
+        currentUserElement.textContent = currentUser;
+        
+        // رسائل وهمية للبدء (في تطبيق حقيقي، سيتم جلبها من قاعدة بيانات)
+        let messages = [];
+        
+        // استخدم localStorage لتخزين الرسائل (بديل مؤقت لقاعدة بيانات)
+        function loadMessages() {
+            const savedMessages = localStorage.getItem('encryptedChatMessages');
+            if (savedMessages) {
+                try {
+                    // فك التشفير (في تطبيق حقيقي، سيتم فك التشفير بمفتاح خاص)
+                    messages = JSON.parse(savedMessages);
+                } catch (e) {
+                    messages = [];
+                }
+            }
             
-            setTimeout(() => {
-                message.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-                message.style.opacity = '1';
-                message.style.transform = 'translateY(0)';
-            }, 300);
+            updateMessagesDisplay();
+        }
+        
+        // حفظ الرسائل في localStorage
+        function saveMessages() {
+            // تشفير (في تطبيق حقيقي، سيتم تشفير الرسائل بمفتاح عام)
+            localStorage.setItem('encryptedChatMessages', JSON.stringify(messages));
+        }
+        
+        // تحديث عرض الرسائل
+        function updateMessagesDisplay() {
+            messagesContainer.innerHTML = '';
             
-            // تغيير لون النص المميز عند النقر عليه
-            const highlight = document.querySelector('.highlight');
-            highlight.addEventListener('click', function() {
-                this.style.color = '#3498db';
-                setTimeout(() => {
-                    this.style.color = '#e74c3c';
-                }, 500);
+            if (messages.length === 0) {
+                noMessagesElement.style.display = 'block';
+                return;
+            }
+            
+            noMessagesElement.style.display = 'none';
+            
+            // إضافة رسالة ترحيبية
+            const welcomeMsg = document.createElement('div');
+            welcomeMsg.className = 'welcome-message';
+            welcomeMsg.innerHTML = `
+                <p>مرحبًا! هذه غرفة دردشة مشفرة. جميع الرسائل مشفرة طرف-ل-طرف.</p>
+                <p>اختر اسم مستخدم وابدأ المحادثة.</p>
+            `;
+            messagesContainer.appendChild(welcomeMsg);
+            
+            // عرض جميع الرسائل
+            messages.forEach((msg, index) => {
+                const messageElement = document.createElement('div');
+                
+                // تحديد إذا كانت الرسالة للمستخدم الحالي أم لا
+                const isMyMessage = msg.userId === userId;
+                
+                messageElement.className = `message ${isMyMessage ? 'my-message' : 'other-message'}`;
+                
+                // تنسيق الوقت
+                const time = new Date(msg.timestamp);
+                const timeString = time.toLocaleTimeString('ar-EG', { 
+                    hour: '2-digit', 
+                    minute: '2-digit' 
+                });
+                
+                // في تطبيق حقيقي، سيتم فك تشفير msg.content بمفتاح خاص
+                messageElement.innerHTML = `
+                    <div class="message-text">${msg.content}</div>
+                    <div class="message-info">
+                        <span>${msg.userName}</span>
+                        <span class="message-time">${timeString}</span>
+                    </div>
+                `;
+                
+                messagesContainer.appendChild(messageElement);
             });
+            
+            // التمرير للأسفل لرؤية أحدث الرسائل
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+        
+        // إرسال رسالة جديدة
+        function sendMessage() {
+            const content = messageInput.value.trim();
+            
+            if (content === '') return;
+            
+            // إنشاء كائن الرسالة
+            const newMessage = {
+                id: 'msg_' + Date.now() + '_' + Math.random().toString(36).substring(2, 9),
+                content: content,
+                userName: currentUser,
+                userId: userId,
+                timestamp: new Date().toISOString()
+            };
+            
+            // إضافة الرسالة للقائمة
+            messages.push(newMessage);
+            
+            // حفظ الرسائل
+            saveMessages();
+            
+            // تحديث العرض
+            updateMessagesDisplay();
+            
+            // مسح حقل الإدخال
+            messageInput.value = '';
+            
+            // إعادة ضبط ارتفاع حقل الإدخال
+            messageInput.style.height = 'auto';
+        }
+        
+        // تغيير اسم المستخدم
+        userSelect.addEventListener('change', function() {
+            currentUser = this.value;
+            currentUserElement.textContent = currentUser;
         });
+        
+        // إرسال الرسالة عند النقر على الزر
+        sendButton.addEventListener('click', sendMessage);
+        
+        // إرسال الرسالة عند الضغط على Enter (ولكن Shift+Enter لسطر جديد)
+        messageInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+            }
+            
+            // تعديل ارتفاع حقل الإدخال تلقائيًا
+            this.style.height = 'auto';
+            this.style.height = (this.scrollHeight) + 'px';
+        });
+        
+        // تعطيل زر الإرسال إذا كان حقل الإدخال فارغًا
+        messageInput.addEventListener('input', function() {
+            sendButton.disabled = this.value.trim() === '';
+        });
+        
+        // تحديث حالة زر الإرسال عند التحميل
+        sendButton.disabled = true;
+        
+        // تحديث تلقائي للرسائل كل 3 ثواني (محاكاة للدردشة في الوقت الحقيقي)
+        setInterval(loadMessages, 3000);
+        
+        // تحميل الرسائل عند بدء التطبيق
+        loadMessages();
+        
+        // محاكاة رسائل من مستخدمين آخرين (للتجربة فقط)
+        function simulateOtherUsers() {
+            // فقط إذا كان هناك أقل من 5 رسائل
+            if (messages.length < 5) {
+                const otherUsers = ['سارة', 'محمد', 'ليلى', 'عمر', 'نور'];
+                const randomUser = otherUsers[Math.floor(Math.random() * otherUsers.length)];
+                
+                const greetings = [
+                    'مرحبًا بالجميع!',
+                    'كيف حالكم؟',
+                    'هل يعمل التشفير بشكل جيد؟',
+                    'هذه تجربة رائعة للدردشة المشفرة',
+                    'أتمنى لكم جميعًا يومًا سعيدًا',
+                    'ما الجديد؟',
+                    'شكرًا على هذه الغرفة المشفرة',
+                    'هل يمكن لأحد أن يشرح كيف يعمل التشفير؟'
+                ];
+                
+                const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
+                
+                // لا تضف رسائل وهمية إذا كان هناك نشاط حديث
+                const lastMessageTime = messages.length > 0 ? 
+                    new Date(messages[messages.length - 1].timestamp) : new Date(0);
+                const timeSinceLastMessage = new Date() - lastMessageTime;
+                
+                // فقط أضف رسالة وهمية إذا لم يكن هناك نشاط في آخر 30 ثانية
+                if (timeSinceLastMessage > 30000) {
+                    const simulatedMessage = {
+                        id: 'msg_' + Date.now() + '_' + Math.random().toString(36).substring(2, 9),
+                        content: randomGreeting,
+                        userName: randomUser,
+                        userId: 'simulated_' + randomUser,
+                        timestamp: new Date().toISOString()
+                    };
+                    
+                    messages.push(simulatedMessage);
+                    saveMessages();
+                    updateMessagesDisplay();
+                }
+            }
+        }
+        
+        // محاكاة رسائل أخرى كل 60 ثانية
+        setInterval(simulateOtherUsers, 60000);
     </script>
 </body>
 </html>
